@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>.: Clinica Odontologica :.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="img/ico.png" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet"/>-->
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--<link href="css/bootstrap-icons.min.css" rel="stylesheet">-->
+
+    <!--<script src="js/bootstrapp/bootstrap.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!--<script src="js/bootstrapp/bootstrap.bundle.min.js"></script>-->
+
+    <script src="js/dentist/create.js"></script>
+    <script src="js/dentist/getAll.js"></script>
+    <script src="js/dentist/update.js"></script>
+    <script src="js/dentist/delete.js"></script>
+    <script src="js/dentist/searchByID.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+   <div class="container-fluid">
+       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+           <a class="navbar-brand" href="#">
+               <img src="img/logotipo.png" alt="clinica Dental" width="50" />
+               Clinica Dental
+           </a>
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                   <a class="nav-link active" aria-current="page" href="main.html">Inicio</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="pacientes.html">Pacientes</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="odontologos.html">Odontologos</a>
+               </li>
+               <li class="nav-item">
+                   <a class="nav-link" href="turnos.html">Turnos</a>
+               </li>
+           </ul>
+       </div>
+   </div>
+</nav>
+
+<main class="container-crud">
+
+   <div class="page-dentist">
+
+       <div class="d-flex align-items-start general-tab">
+           <div class="nav flex-column nav-pills me-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+               <button class="nav-link active" id="v-pills-create-tab" data-bs-toggle="pill" data-bs-target="#v-pills-create" type="button" role="tab" aria-controls="v-pills-create" aria-selected="true">Agregar</button>
+               <button class="nav-link" id="v-pills-getallDentist-tab" data-bs-toggle="pill" data-bs-target="#v-pills-getallDentist" type="button" role="tab" aria-controls="v-pills-getallDentist" aria-selected="false">Listar</button>
+               <button class="nav-link" id="v-pills-getBy-tab" data-bs-toggle="pill" data-bs-target="#v-pills-getBy" type="button" role="tab" aria-controls="v-pills-getBy" aria-selected="false">Buscar</button>
+           </div>
+
+           <div class="tab-content general-content" id="v-pills-tabContent">
+               <div class="tab-pane fade show active" id="v-pills-create" role="tabpanel" aria-labelledby="v-pills-create-tab" tabindex="0">
+                   <h2>Odontólogos</h2>
+                   <hr />
+                   <form id="add_new_dentist">
+                       <fieldset class="form-group">
+                           <legend>Datos personales</legend>
+                           <label class="form-label" for="name_dentist">Nombre:</label>
+                           <input class="form-control" type="text" id="name_dentist" name="name_dentist" placeholder="Ingresa tu nombre" required/>
+
+                           <label class="form-label" for="surname_dentist">Apellido:</label>
+                           <input class="form-control" type="text" id="surname_dentist" name="surname_dentist" placeholder="Ingresa tu apellido" required/>
+
+                           <label class="form-label" for="enrollment">Matrícula:</label>
+                           <input class="form-control" type="text" id="enrollment" name="enrollment" placeholder="Ingresar matrícula" required/>
+                       </fieldset>
+
+                       <button type="submit" class="btn btn-primary" id="btn-add">
+                           Agregar
+                       </button>
+                   </form>
+                   <div id="response" style="display: none; margin-top: 10px"></div>
+               </div>
+
+               <div class="tab-pane fade" id="v-pills-getallDentist" role="tabpanel" aria-labelledby="v-pills-getallDentist-tab" tabindex="0">
+                   <div id="div_dentist_table">
+                       <h2>Listado de odontólogos</h2>
+                       <hr>
+                       <div class="row col-md-12 table-responsive">
+                           <table id="dentistTable" class="table table-striped">
+                               <thead>
+                               <tr>
+                                   <th>Nombre</th>
+                                   <th>Apellido</th>
+                                   <th>Matrícula</th>
+                                   <th>Editar</th>
+                                   <th>Elminar</th>
+                               </tr>
+                               </thead>
+                               <tbody id="DentistTableBody"></tbody>
+                           </table>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col-sm-12" style="display: none; background-color:#e6fffa; padding:10px; border-radius:3px" id="div_dentist_updating">
+                           <form id="update_dentist_form">
+                               <fieldset class="form-group">
+                                   <label >Id:</label>
+                                   <input type="text" class="form-control" id="dentist_id" readonly>
+
+                                   <label>Nombre:</label>
+                                   <input class="form-control" type="text" id="name_dentist_up" placeholder="Ingresa tu nombre"/>
+
+                                   <label>Apellido:</label>
+                                   <input class="form-control" type="text" id="surname_dentist_up" placeholder="Ingresa tu apellido"/>
+
+                                   <label>DNI:</label>
+                                   <input class="form-control" type="text" id="enrollment_up" placeholder="Ingresa tu matrícula"/>
+                               </fieldset>
+                               <button type="submit" class="btn btn-primary" id="btn-update">
+                                   Modificar
+                               </button>
+                           </form>
+                           <div id="responseUpdate" style="display:none; margin:10px">
+                           </div>
+                       </div>
+                   </div>
+                   <hr>
+               </div>
+               <div class="tab-pane fade" id="v-pills-getBy" role="tabpanel" aria-labelledby="v-pills-getBy-tab" tabindex="0">
+                   <h2>Buscar pacientes por ID</h2>
+                   <hr>
+                   <form class="row g-3" id="search-byID">
+                       <div class="col-auto">
+                           <input type="search" class="form-control" id="search" placeholder="Buscar ...">
+                       </div>
+                       <div class="col-auto">
+                           <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+                       </div>
+                   </form>
+                   <hr>
+                   <!-- Aquí se mostrará la información del Odontologo -->
+                    <div id="dentist-info"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

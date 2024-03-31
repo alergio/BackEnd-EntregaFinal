@@ -1,0 +1,205 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+*{
+    box-sizing: border-box;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --base-color: #ffffff;
+    --section-color: #FAFAFA;
+    --violet-color: #8B48BF;
+    --skyblue:#3CDDF3;
+}
+
+body{
+    background-image: url("../img/background.png");
+    background-size: cover;
+}
+
+.container-log{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+    width: 100%;
+}
+
+.logotipo{
+    display: block;
+    height: 45%;
+    margin: auto;
+    padding-bottom: 30px;
+    width: 40%;
+}
+
+.login-box{
+    background-color: rgba(255,255,255,0.85);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 45px;
+    padding: 5%;
+    width: 35%;
+}
+
+.login{
+    background: #fff;
+    border: #81C2FB 1px solid;
+    border-radius: 20px;
+    padding: 50px 50px;
+}
+
+.border-log{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.lost-pass{
+    color: var(--skyblue);
+    font-size: 0.7rem;
+    font-style: italic;
+}
+
+.btn-access{
+    margin-top: 20px;
+}
+
+.container-crud{
+    height: 100%;
+    width: 100%;
+}
+
+.container-img{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 5% 10%;
+    width: 100vw;
+}
+
+.container-img img{
+    border: var(--base-color) solid 3px;
+    width: 30%;
+}
+/*--------------------------------------------------------*/
+/*                       Pacientes                        */
+/*--------------------------------------------------------*/
+
+.page-patient{
+    background-color: var(--base-color);
+    display: flex;
+    margin: 5vh 5vw;
+    padding: 50px;
+    width: 80vw;
+}
+
+.get-patient{
+    background-color: var(--base-color);
+    display: flex;
+    display: none;
+    margin: 5vh 5vw;
+    padding: 50px;
+    width: 80vw;
+}
+
+.general-tab{
+    width: 100vw;
+}
+
+.general-content{
+    border-left: #ccc solid 1px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+    width: 100%;
+}
+
+#add_new_patient{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px 50px;
+    width: 100%;
+}
+
+#add_new_patient fieldset{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#btn-add{
+    margin-top: 20px;
+    width: 25%;
+}
+
+#patientTable thead{
+    border: #ccc solid 1px;
+}
+
+#patientTable tr th{
+    background-color: #ccc;
+    border: #fff solid 1px;
+    text-align: center;
+}
+
+/*--------------------------------------------------------*/
+/*                       Odontologo                       */
+/*--------------------------------------------------------*/
+
+.page-dentist{
+    background-color: var(--base-color);
+    display: flex;
+    margin: 5vh 5vw;
+    padding: 50px;
+    width: 80vw;
+}
+
+#dentistTable thead{
+    border: #ccc solid 1px;
+}
+
+#dentistTable tr th{
+    background-color: #ccc;
+    border: #fff solid 1px;
+    text-align: center;
+}
+
+#add_new_dentist fieldset{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/*--------------------------------------------------------*/
+/*                       Turnos                           */
+/*--------------------------------------------------------*/
+
+.page-appointment{
+    background-color: var(--base-color);
+    display: flex;
+    margin: 5vh 5vw;
+    padding: 50px;
+    width: 80vw;
+}
+
+#appointmentTable thead{
+    border: #ccc solid 1px;
+}
+
+#appointmentTable tr th{
+    background-color: #ccc;
+    border: #fff solid 1px;
+    text-align: center;
+}
+
+#add_new_appointment fieldset{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
