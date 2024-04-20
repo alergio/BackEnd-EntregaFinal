@@ -8,8 +8,8 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
+@Builder
 public class DTOResponse<T> {
     private int statusCode;
     private String message;

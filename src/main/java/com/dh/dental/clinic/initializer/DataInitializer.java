@@ -1,12 +1,11 @@
 package com.dh.dental.clinic.initializer;
 
-import com.dh.dental.clinic.entity.Address;
-import com.dh.dental.clinic.entity.Appointment;
-import com.dh.dental.clinic.entity.Dentist;
-import com.dh.dental.clinic.entity.Patient;
+import com.dh.dental.clinic.entity.*;
 import com.dh.dental.clinic.repository.impl.IAppointmentRepository;
 import com.dh.dental.clinic.repository.impl.IDentistRepository;
 import com.dh.dental.clinic.repository.impl.IPatientRepository;
+import com.dh.dental.clinic.repository.impl.IRoleRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -15,16 +14,30 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Component
+@RequiredArgsConstructor
 public class DataInitializer implements CommandLineRunner {
-    @Autowired
-    private IAppointmentRepository appointmentRepository;
-    @Autowired
-    private IDentistRepository dentistRepository;
-    @Autowired
-    private IPatientRepository patientRepository;
+
+    private final IAppointmentRepository appointmentRepository;
+    private final IDentistRepository dentistRepository;
+    private final IPatientRepository patientRepository;
+    private final IRoleRepository roleRepository;
 
     @Override
     public void run(String... args) throws Exception {
+
+
+
+        // Roles
+
+        Role ROLE_ADMIN = new Role();
+        Role ROLE_USER = new Role();
+
+        ROLE_ADMIN.setName(RoleType.ROLE_ADMIN);
+        ROLE_USER.setName(RoleType.ROLE_USER);
+
+        roleRepository.save(ROLE_ADMIN);
+        roleRepository.save(ROLE_USER);
+
 
         // Pacientes
 

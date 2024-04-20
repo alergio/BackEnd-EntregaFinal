@@ -4,19 +4,16 @@ package com.dh.dental.clinic.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "patients")
-@Getter
-@Setter
+@Table(name = "Patient")
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Patient {

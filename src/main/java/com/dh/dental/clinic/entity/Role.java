@@ -1,30 +1,25 @@
 package com.dh.dental.clinic.entity;
 
-public class Role {
-    
+import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+
+@Entity
+@Table(name = "Role")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Role implements GrantedAuthority {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String roleType;
 
-    public Role() {
-    }
+    @Enumerated(EnumType.STRING)
+    private RoleType name;
 
-    public Role(String roleType) {
-        this.roleType = roleType;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getRoleType() {
-        return roleType;
-    }
-
-    public void setRoleType(String roleType) {
-        this.roleType = roleType;
+    @Override
+    public String getAuthority() {
+        return name.name();
     }
 }

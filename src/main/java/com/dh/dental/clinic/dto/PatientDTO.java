@@ -11,8 +11,8 @@ import java.util.Set;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
+@Data
+@Builder
 public class PatientDTO implements EntityIdentificatorDTO {
     private Long id;
     private String name;

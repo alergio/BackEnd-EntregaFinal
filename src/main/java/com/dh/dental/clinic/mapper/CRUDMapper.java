@@ -1,7 +1,6 @@
 package com.dh.dental.clinic.mapper;
 
 import com.dh.dental.clinic.dto.*;
-import com.dh.dental.clinic.entity.Appointment;
 import com.dh.dental.clinic.exceptions.ResourceNotFoundException;
 import com.dh.dental.clinic.repository.IGenericRepository;
 import lombok.NoArgsConstructor;
