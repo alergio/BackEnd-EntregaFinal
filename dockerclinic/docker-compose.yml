@@ -20,8 +20,8 @@ services:
     ports:
       - "8080:8080"
     environment:
-      MYSQL_HOST: host.docker.internal
-      MYSQL_PORT: 3300
-      MYSQL_DB: dental_clinic
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin123
+      D_MYSQL_HOST: host.docker.internal
+      D_MYSQL_PORT: 3300
+      D_MYSQL_DB: dental_clinic
+      D_MYSQL_USER: admin
+      D_MYSQL_PASSWORD: admin123
