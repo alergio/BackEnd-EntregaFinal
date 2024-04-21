@@ -56,7 +56,7 @@ public class PatientServiceTest {
         patientDTO.setDni("12345");
         patientDTO.setName("Raul");
         patientDTO.setSurname("Perez");
-        patientDTO.setRegistrationDate(LocalDate.now());
+        patientDTO.setRegistrationDate(LocalDate.of(2024, 03, 31));
         patientDTO.setAddressDTO(addressDTO);
 
         // prepare save
