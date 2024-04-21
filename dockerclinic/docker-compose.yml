@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  mysql-db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_admin_123
+      MYSQL_DATABASE: dental_clinic
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin123
+    ports:
+      - "3300:3306"
+    expose:
+      - "3300"
+    volumes:
+      - ./data:/var/lib/mysql
+  clinic:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    environment:
+      MYSQL_HOST: host.docker.internal
+      MYSQL_PORT: 3300
+      MYSQL_DB: dental_clinic
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin123
